@@ -1,0 +1,168 @@
+\documentclass[conference]{IEEEtran}
+\usepackage{url}
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+\title{From Python to Pythonic - Preliminary Research}
+
+
+\author{\IEEEauthorblockN{Gregorio Robles}
+\IEEEauthorblockA{GSyC/LibreSoft\\
+Universidad Rey Juan Carlos\\
+Fuenlabrada, Madrid, Spain\\
+Email: grex@gsyc.urjc.es}
+\and
+\IEEEauthorblockN{Bogdan Vasilescu}
+\IEEEauthorblockA{Computer Science Department\\
+University of California, Davis\\
+Email: vasilescu@gmail.com}
+}
+
+
+\maketitle
+\IEEEpeerreviewmaketitle
+
+\section{Introduction}
+
+Every programming language has its idioms and culture.
+
+Every programming language has as well been designed to optimize certain tasks~\cite{coplien1997idioms,coplien1997advanced}. This goes beyond a style guide (such as PEP-8 in Python\footnote{\url{https://www.python.org/dev/peps/pep-0008/}}), code conventions~\cite{allamanis2014learning}, or other complexity measures and tools commonly used in software development (as it is common for programming languages). There are plenty of tools that offer feedback to the developers about their programs, providing complexity metrics, warnings or even hint to the presence of \emph{bad smells}. PyFlakes\footnote{\url{https://pypi.python.org/pypi/pyflakes}} and PyLint\footnote{\url{http://pylint.org/}} are an example of such tools in the Python ecosystem.
+
+The mastery of a programming language can take years. However, there is a lack of knowledge of many of the idioms and advanced characteristics that a programming language includes. So even with years of experience, a developer may not be aware of them~\cite{langtangen2006python}.
+
+In our research we want to study the precense of advanced idiomatic elements in the Python language. Experienced Python programmers use thse elements, called \emph{Pythonic}, in order to have more readable, more concise and more optimized code. By identifying idiomatic Python we will be able to assess the skills in Python of programmers. We also plan to use it to identify learning paths, the presence or absence of certain idioms, etc.
+
+\section{Idioms}
+
+Kapser et al. provide a good definition of an idiom~\cite{kapser2006cloning}, although their research focus is on software cloning.
+There is an ample culture and public debate in the Python community about writing idiomatic 
+code, referred as \emph{Pythonic} code. However, there is nowhere an exact definition of what this means\footnote{The excerpt has been taken from \url{http://blog.startifact.com/posts/older/what-is-pythonic.html}.}:
+
+``\emph{Pythonic} means something like \emph{idiomatic Python}, but now we'll need to describe what that actually means.
+
+Over time, as the Python language evolved and the community grew, a lot of ideas arose about how to use Python the right way. The Python language actively encourages a large number of idioms to accomplish a number of tasks (``the one way to do it''). In turn, new idioms that evolved in the Python community have influenced the evolution of the language to support them better.''
+
+
+Many beginners in Python with some experience in other languages could
+solve the problem of finding all countries in the \texttt{mylist} list that
+contain the letter ``a'' with following code:
+
+\begin{verbatim}
+countriesWithA = []
+i = 0
+while i < mylist_length:
+   if "a" in mylist[i]:
+      countriesWithA.append(mylist[i])
+   i += 1
+\end{verbatim}
+
+Although completely correct, it would not
+be considered \emph{good} Python. We could improve it by using a built-in
+function such as \texttt{range}:
+
+\begin{verbatim}
+contriesWithA = []
+for i in range(mylist_length):
+   if "a" in mylist[i]:
+      countriesWithA.append(mylist[i])
+\end{verbatim}
+
+But this is not \emph{Pythonic} either. The following is better, as it uses the for
+loop in a more \emph{Pythonic way}:
+
+\begin{verbatim}
+contriesWithA = []
+for country in mylist:
+   if "a" in coutry:
+      countriesWithA.append(country)
+\end{verbatim}
+
+However, there is a Python idiom, \texttt{list comprehensions},
+that specifically can be used to solve the problem
+of creating a list from another list (in general, by filtering it):
+
+\begin{verbatim}
+countriesWithA = [country for country in
+                  mylist if "a" in country]
+\end{verbatim}
+
+
+We have identified a set of advanced features of the Python language that are specific to the language or that are ``embedded'' into its culture. There are many developers that program in Python as they would do in any other language (i.e., without using \emph{Pythonic} elements). Even, we have found 500+ pages introductory books that teach Python without including any of the elements considered \emph{Pythonic}! Plenty of other books and web sites focus on these advanced elements of a programming language~\cite{martelli2005python}. 
+
+% ,pilgrim2009dive
+
+An incomplete list of advanced features that we target is as follows:
+
+\begin{itemize}
+  \item Comprehensions
+  \item Magic methods
+  \item Keyword arguments
+  \item Structures defined in \texttt{collections}
+  \item Lambda functions
+  \item Context managers
+  \item Decorators
+  \item Properties
+  \item Static methods and classes
+  \item Class methods
+  \item ...
+\end{itemize}
+  
+
+Our research goal is driven by the fact that there is a lack of methodologies and tools that show the acquired level/skills in a given programming language and that potentially help developers to gain knowledge of new characteristics. This is mostly obtained by collaborating with peers and reading others' source code. Therefore, we present a framework proposal to evaluate the skills of a programmer in a given programming language, in this case Python, and want to study as well how these abilities affect the project in which these developers collaborate.
+
+
+\section{Goals and RQs}
+
+The RQs we want to address are following:
+
+\begin{enumerate}
+  \item
+What is the extent of Pythonic skills present among Python developers in GitHub?
+  \begin{enumerate}
+    \item The more social (number of forks, number of projects involved) a developer,
+ the more Pythonista\footnote{A Pythonista is a developer who codes using idiomatic Python.}?
+    \item The more experienced a developer (number of commits, number of LOC, number of comments, etc.) a developer in Python, the more Pythonic code?
+    \item Can we find other characteristics that co-relate with Pythonic code (gender, age, geographic location, etc.)?
+    \item Are projects/repos clusters for Pythonistas?
+    \item Is the use of Pythonic elements constant over time? Is today's code more Pythonic than older Python code?
+  \end{enumerate}
+
+  \item What are the advanced elements mostly used? Which are the less used ones?
+
+  \item How do Python developers learn advanced skills?
+  \begin{enumerate}
+    \item Can we identify the spread of Pythonic elements from experienced developers to other developers by means of collaboration (and/or forking)?
+    \item Can we identify a common learning roadmap?
+  \end{enumerate}
+  \item Are Pythonista projects larger (in commits, in LOC)? Do they attract more developers? Do they have more forks?
+\end{enumerate}
+
+
+\section{Methodology}
+
+Our current research methodology is based on mining GitHub, identifying those where the main language is Python (and not being a fork). These projects will be downloaded and analyzed by means of identifying advanced Python usage. To identify Python idioms we use a lexer\footnote{http://pygments.org/docs/lexers/}. We have therefore transformed the idioms in our list to tokens or a sequence of tokens that we look for in the Python code under scrutinity. This is an approach based on heuristics, but although as by now we do not have values of precision and recall, our first experiences show that it provides high values of both.
+
+The author and time of the code snippets identified by means of the \texttt{blame} git command will allow us to assign that snippet to an author and obtain statistics on a project and on an individual and project basis.
+
+\section{Threats to validity}
+
+As with all empirical studies, there are a number of threats to its validity. The following is an uncomplete list of threats that we have to consider.
+
+\begin{itemize}
+  \item Our list of Python idioms considered as Pythonic will always be incomplete, and because of its heuristic nature prone to errors in identification.
+  \item Although the number of Python projects hosted in GitHub is large, it is by no means all the Python code that exists. Much Python code is still using Mercurial, or may be hosted in other forges and repositories.
+  \item We are aware that the occurrence of patterns may be influenced by the Python libraries used. Actually, some of the Python idioms refer especifically to the use of such libraries.
+  \item Small and large projects may have completely different characteristics. This makes it hard to identify skills of individual developers.
+\end{itemize}
+
+
+\section{Acknowledgments}
+
+The work of Gregorio Robles has been funded in part by the Region of Madrid under project ``eMadrid - Investigación y Desarrollo de tecnologías para el e-learning en la Comunidad de Madrid'' (S2013/ICE-2715) and in part by the Spanish Government under project SobreVision (TIN2014-59400-R). The authors would also like the BENEVOL 2015 anonymous reviewers for their feedaback and suggestions.
+
+\bibliographystyle{abbrv}
+\bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
+
+
+\end{document}
