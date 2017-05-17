@@ -1,43 +1,11 @@
------------------------ REVIEW 1 ---------------------
-Overall evaluation: 2 (accept)
------------ Overall evaluation -----------
-Although sometimes remaining a bit superficial, though luckily compensated by some concrete code examples, this paper presents the work in progress of the authors on their Pythonic project to extract Python idioms from Python projects on Github and, in the longer run, to provide guidance to novices on how to use such idioms. The paper still contains a few language errors to be corrected, some of which are mentioned below. Also, the authors SHOULD  mention the link with software evolution for this particular seminar. The word "evolution" is not even mentioned once in the entire paper !!! The figures are a bit too small making it difficult to read the labels on the axes. I think this paper can definitely be presented at the seminar, but some work is needed to make this into an acceptable publication if the authors would consider submitting it as a paper to appear in the post-proceedings of the seminar.
-
-Other comments:
-- Avoid the long bulleted list in section 2, just make it an enumeration on a single line. Alternatively, keep the bullet list but provide a more detailed concrete example for each item in the list. (May even be better, to give the reader a better feeling of what the Pythonic way is.)
-
 - Images should be scaled up, labels on x-axis not readable (figure 1,2,3)
-- Section 4, probably because it is about work in progress, seems much more immature than the other sections. Also the screen shots are too small to be readable. (This being said, I wonder how pertinent a screenshot like the one of Figure 4 is, other than being a page filler.)
+- Section 4, probably because it is about work in progress, seems much more immature than the other sections. Also the screen shots are too small to be readable.
 
------------------------ REVIEW 2 ---------------------
-Overall evaluation: 3 (strong accept)
------------ Overall evaluation -----------
-This paper presents a work in progress to identify the idioms used in several projects written in Python, and categorize them to suggest their use to developers.
-
-I liked this paper, it is readable, the topic is interesting, and it is clear that the authors have a practical expertise of the Python ecosystem.
-
-There is an aspect that needs further clarification, that is that there is no discussion on the idiom retrieval process.
-Since the whole reliability of the study is based on how an idiom is identified, I think that it is necessary to provide more details and a discussion about the possible errors and threats.
+- There is an aspect that needs further clarification, that is that there is no discussion on the idiom retrieval process.
+- Since the whole reliability of the study is based on how an idiom is identified, I think that it is necessary to provide more details and a discussion about the possible errors and threats.
 
 One reflection about the anti-idioms. Since an anti-idiom is a piece of code that should have been written differently (i.e., with an idiom), I don't think that the parallel with anti-patterns is fitting, as an anti-idiom is the lack of the use of an idiom.
-It is however interesting that an anti-idiom could carry technical debt, as it could hinder maintainability and hide bugs.
 
 It would be really interesting to see an evaluation of the use of the approach on daily development, maybe with an integration with the IDE, to see the impact on maintainability on a Python project.
 
-Minor notes on Section 2:
-
-- please, provide a brief description of the arguments
-
-- do not finish a list with '...', it is not clear what it means and does not look pretty
-
-
------------------------ REVIEW 3 ---------------------
-Overall evaluation: 2 (accept)
------------ Overall evaluation -----------
-The authors aim at analyzing Python and creating a web application that can help beginners and advanced programmers to make their Python code more Pythonic. This is a very creative idea and excellent work.
-
-The dataset analyzed is impressive: of 70,000 Python projects. It is interesting to see the diversity in usage of pythonic constructs in the analyzed projects.
-
-The data about the dunder methods as well as the various manually defined pythonic idioms is also very interesting.
-
- I think the work is very relevant work for the audience of SATToSE. I would also recommend the publication of the work in the post-proceedings.
+- Section 2. provide a brief description of the arguments

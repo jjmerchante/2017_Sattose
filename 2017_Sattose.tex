@@ -57,18 +57,7 @@ For these reasons, we think it would be a good idea to analyze Python idioms and
 
 \section{Methodology}
 
-For the implementation of this tool we have searched for the most important Python idioms in books and talks at PythonCon, the most important conference on Python. Like this, we have collected Python idioms of various difficulty levels. This list contains idioms such as:
-
-\begin{itemize}
-\item Comprehensions
-\item Magic methods
-\item Lambda functions
-\item Decorators
-\item Collections structures
-\item Class methods
-\item Closures
-\item ...
-\end{itemize}
+For the implementation of this tool we have searched for the most important Python idioms in books and talks at PythonCon, the most important conference on Python. Like this, we have collected Python idioms of various difficulty levels. This list contains idioms such as: List comprehensions, magic methods, lambda functions, decorators, collections structures, class methods or closures.
 
 In order to identify the idioms in Python source code, we look for tokens in Python code. For some idioms, this is straightforward (e.g., for the \emph{with} keyword), while for others it is more complex (e.g., for list comprehensions, in particular those that contain Boolean logic). Then, we scan Python code in a project with a lexer called \texttt{Pygments}\footnote{http://pygments.org/} for these idioms.
 
@@ -86,7 +75,7 @@ Figure~\ref{fig:idioms_per_repository} shows the number of idioms per repository
 
 \begin{figure}[ht]
 \centering  
-\includegraphics[width=90mm]{img/idioms_per_repository.png}
+\includegraphics[width=82mm]{img/idioms_per_repository.png}
 \caption{Number of idioms per repository}
 \label{fig:idioms_per_repository}
 \end{figure}
@@ -96,7 +85,7 @@ Figure~\ref{fig:idiom_ranking} displays the most used idioms by number of reposi
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=90mm]{img/num_idiom_repo.png}
+\includegraphics[width=82mm]{img/num_idiom_repo.png}
 \caption{Ranking of most frequent Python idioms. Idioms are counted only once per repository.}
 \label{fig:idiom_ranking}
 \end{figure}
@@ -105,7 +94,7 @@ Some of the most used and known Python idioms are \emph{magic} methods (methods 
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=90mm]{img/magic_methods.png}
+\includegraphics[width=82mm]{img/magic_methods.png}
 \caption{Most common magic methods (\_\_init\_\_ not included).}
 \label{fig:magic_ranking}
 \end{figure}
@@ -119,15 +108,7 @@ From all the repositories analyzed, we have extracted some information about the
 
 The application is running over Django, a high level Python framework that encourages rapid development and clean, pragmatic design\footnote{https://www.djangoproject.com/}.
 
-When a user enters his username of GitHub in the web application, we select his profile repositories in a first approach and let him introduce others that he has contributed to. When the repositories are cloned, the tool filters the Python files looking at the extension or the first line of code. In the figure ~\ref{fig:main_web_page} we can see the main page of the actual work.
-
-\begin{figure}[ht]
-\centering  
-\includegraphics[width=80mm]{img/main.png}
-\caption{Main web page of the application}
-\label{fig:main_web_page}
-\end{figure}
-
+When a user enters his username of GitHub in the web application, we select his profile repositories in a first approach and let him introduce others that he has contributed to. When the repositories are cloned, the tool filters the Python files looking at the extension or the first line of code.
 
 Our work in progress is to identify the level of a user and give a mark about his Python knowledge. Our first approach is to classify the idioms in three different levels depending on the difficulty to be learnt.
 
@@ -135,7 +116,7 @@ For example, analyzing a previous version of the tool that extracts Pythonic idi
 
 \begin{figure}[ht]
 \centering  
-\includegraphics[width=80mm]{img/results_pythonic.png}
+\includegraphics[width=82mm]{img/results_pythonic.png}
 \caption{Results of 'Pythonic analyzer' repository}
 \label{fig:mark_pythonic}
 \end{figure}
